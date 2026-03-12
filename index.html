@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="shortcut icon" href="engrenagem.png" type="image/png">
+    <meta charset="UTF-8">
+    <title>Sites Úteis</title>
+    <style>
+#btnTopo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none; /* Escondido por padrão */
+    background-color: #f1c40f;
+    color: #2c3e50;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+#btnTopo:hover { background-color: #d4ac0d; transform: scale(1.1); }
+.highlight {
+    background-color: #f1c40f; /* O mesmo amarelo dos seus títulos */
+    color: #2c3e50; /* A cor escura do seu fundo para dar contraste */
+    border-radius: 4px;
+    padding: 0 2px;
+}
+        body { font-family: 'Segoe UI', sans-serif; background: #2c3e50; padding: 40px 40px 120px 40px; color: white; }
+        h1, h2 { text-align: center; color: #f1c40f; }
+        #filtro { display: block; margin: 20px auto; padding: 12px; width: 80%; max-width: 400px; border-radius: 20px; border: none; text-align: center; outline: none; font-size: 16px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto 40px auto; }
+        .card { background: #ffffff; padding: 20px; border-radius: 15px; text-align: center; cursor: pointer; transition: 0.3s; color: #333; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .card:hover { transform: scale(1.05); background: #ecf0f1; }
+        .card img { width: 64px; height: 64px; margin-bottom: 10px; }
+        .card div { font-weight: 600; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+    <h1>Links Úteis</h1>
+    
+    <section class="secao">
+
+        <div class="grid">
+            <div class="card" onclick="window.open('https://sei.saude.gov.br/sip/login.php?sigla_orgao_sistema=MS&sigla_sistema=SEI&infra_url=L3NlaS8=')"><img src="sei-ms.png"><div>SEI - MS</div></div>      
+            <div class="card" onclick="window.open('https://outlook.cloud.microsoft/mail/conveniosnucleorj@saude.gov.br/')"><img src="email.png"><div>Email– Outlook</div></div>
+            <div class="card" onclick="window.open('https://petrvs.saude.gov.br/login?context=EXECUCAO&idroute=d59f5a898278803ed0de705f22caf9f7')"><img src="petrvs.png"><div>Petrvs</div></div>
+            <div class="card" onclick="window.open('https://sougov.sigepe.gov.br/sougov/')"><img src="sougov.png"><div>SouGov</div></div>          
+            <div class="card" onclick="window.open('https://demandasdatasus.saude.gov.br/citsmart/login/login.load')"><img src="citsmart.png"><div>CITSmart</div></div>            
+            <div class="card" onclick="window.open('https://www.ilovepdf.com/pt')"><img src="ilovepdf.png"><div>ILovePDF</div></div>
+            <div class="card" onclick="window.open('https://tools.pdf24.org/pt/ocr-pdf')"><img src="pdf24tools.png"><div>PDF24 Tools</div></div>
+            <div class="card" onclick="window.open('https://www.pdfgear.com/pt/')"><img src="pdf-gear.png"><div>PDFgear</div></div>
+            <div class="card" onclick="window.open('https://pdfsam.org/pt/download-pdfsam-basic/')"><img src="pdfsam.png"><div>PDFSam</div></div>
+            <div class="card" onclick="window.open('http://sigesp.saude.gov.br/portal#/login')"><img src="portal.png"><div>Potal - SIGESP</div></div>
+            </div>
+    </section>
+        </div>
+    </section>
+
+</body>
+</html>
