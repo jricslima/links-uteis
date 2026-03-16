@@ -42,9 +42,13 @@
 <body>
 
     <h1>Links Úteis</h1>
+<input type="text" id="filtro" placeholder="🔍 Buscar ferramentas...">
+<p id="mensagemVazio" style="display:none; text-align:center; color: #f1c40f; margin-top: 20px;">
+    Ops, nenhuma ferramenta encontrada com este termo!
+</p>
     
     <section class="secao">
-
+    <h2>Sites MS</h2>
         <div class="grid">
             <div class="card" onclick="window.open('https://sei.saude.gov.br/sip/login.php?sigla_orgao_sistema=MS&sigla_sistema=SEI&infra_url=L3NlaS8=')"><img src="sei-ms.png"><div>SEI - MS</div></div>      
             <div class="card" onclick="window.open('https://outlook.cloud.microsoft/mail/conveniosnucleorj@saude.gov.br/')"><img src="email.png"><div>Email– Outlook</div></div>
@@ -56,11 +60,29 @@
 
             <div class="card" onclick="window.open('https://sso.gestaodeacesso.sigepe.gov.br/cassso/login')"><img src="sigac.png"><div>SIGAC</div></div>
 
-            <div class="card" onclick="window.open('https://portalfns.saude.gov.br/consultas/')"><img src="fns.png"><div>Consulta - FNS</div></div>        
+            <div class="card" onclick="window.open('https://portalfns.saude.gov.br/consultas/')"><img src="fns.png"><div>Consulta - FNS</div></div>  
+
+            <div class="card" onclick="window.open('https://integrams.saude.gov.br/MS/login')"><img src="integrams.png"><div>Integra MS</div></div>
+
+</div>
+    </section>
+
+    <section class="secao">
+        <h2>Sites do Governo</h2>
+        <div class="grid">
 
             <div class="card" onclick="window.open('https://www.gov.br/agu/pt-br/sapiens-1')"><img src="agu-sapiens.png"><div>AGU - Sapiens</div></div>
 
-            <div class="card" onclick="window.open('https://integrams.saude.gov.br/MS/login')"><img src="integrams.png"><div>Integra MS</div></div>
+            <div class="card" onclick="window.open('https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda')"><img src="receita-federal.png"><div>Receita Federal</div></div>
+
+        
+
+</div>
+    </section>
+
+<section class="secao">
+        <h2>Ferramentas Online</h2>
+        <div class="grid">
 
             <div class="card" onclick="window.open('https://www.ilovepdf.com/pt')"><img src="ilovepdf.png"><div>ILovePDF</div></div>
             
@@ -70,15 +92,92 @@
             
             <div class="card" onclick="window.open('https://pdfsam.org/pt/download-pdfsam-basic/')"><img src="pdfsam.png"><div>PDFSam</div></div>
 
+</div>
+    </section>
+
+<section class="secao">
+        <h2>Planilhas e Listas</h2>
+        <div class="grid">
+
             <div class="card" onclick="window.open('https://docs.google.com/spreadsheets/d/1eIj7H5icOFUIFnQvRl8dHU3JFUYNhiAmc2FplcC02pQ/edit?usp=sharing')"><img src="geradorde etiquetas.png"><div>Gerador de etiquetas</div></div>
+
+            <div class="card" onclick="window.open('https://docs.google.com/spreadsheets/d/1rvaMg19L3gv1sxAN8LxwCYcW7LmHMmY6VN5sUG-f8Jo/edit?usp=sharing')"><img src="cctc.png"><div>CCTC</div></div>
+            
 
             <div class="card" onclick="window.open('https://drive.google.com/file/d/1_nv2d2irlCNVqujrzS2FGKu65NVPBfqI/view?usp=sharing')"><img src="contatossemsa.png"><div>Contatos - SEMSA-RJ</div></div>            
 
-            <div class="card" onclick="window.open('https://demandasdatasus.saude.gov.br/resetuser/')"><img src="resetdesenha.png"><div>Reset de Senha v1.0 - MS</div></div>
+</div>
+    </section>
+
+
+<section class="secao">
+        <h2>Extras</h2>
+        <div class="grid">           
+
+ <div class="card" onclick="window.open('https://buscacepinter.correios.com.br/app/endereco/index.php')"><img src="busca-de-cep.png"><div>Busca de CEP</div></div>  
+      
+
+<div class="card" onclick="window.open('https://demandasdatasus.saude.gov.br/resetuser/')"><img src="resetdesenha.png"><div>Reset de Senha v1.0 - MS</div></div>
             </div>
     </section>
         </div>
     </section>
+
+<script>
+// Lógica de busca e destaque
+document.getElementById('filtro').addEventListener('input', function() {
+    let termoOriginal = this.value;
+    let termo = termoOriginal.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+    let secoes = document.querySelectorAll('.secao');
+    let aviso = document.getElementById('mensagemVazio');
+    let encontrouAlgumaCoisaNoTotal = false;
+
+    secoes.forEach(secao => {
+        let tituloOriginal = secao.querySelector('h2').innerText;
+        let tituloSemAcento = tituloOriginal.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+        let cards = secao.querySelectorAll('.card');
+        let termoNoTitulo = tituloSemAcento.includes(termo);
+        let encontrouNestaSecao = false;
+
+        cards.forEach(card => {
+            let nomeDiv = card.querySelector('div');
+            let nomeOriginal = nomeDiv.innerText;
+            let nomeSemAcento = nomeOriginal.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+            
+            if (termoNoTitulo || nomeSemAcento.includes(termo)) {
+                card.style.display = "";
+                encontrouNestaSecao = true;
+                encontrouAlgumaCoisaNoTotal = true;
+                
+                if (termoOriginal.length > 0 && nomeSemAcento.includes(termo)) {
+                    let regex = new RegExp(`(${termoOriginal})`, 'gi');
+                    nomeDiv.innerHTML = nomeOriginal.replace(regex, '<span class="highlight">$1</span>');
+                } else {
+                    nomeDiv.innerHTML = nomeOriginal;
+                }
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        secao.style.display = encontrouNestaSecao ? "" : "none";
+    });
+
+    aviso.style.display = encontrouAlgumaCoisaNoTotal ? "none" : "block";
+});
+
+// Lógica do botão de voltar ao topo (AQUI ESTAVA O QUE FALTAVA!)
+window.onscroll = function() {
+    let btn = document.getElementById("btnTopo");
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+</script><button id="btnTopo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Ir para o topo">
+    ↑
+</button>
 
 </body>
 </html>
