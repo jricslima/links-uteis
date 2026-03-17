@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <title>Sites Úteis</title>
     <style>
+
+html {
+    scroll-behavior: smooth;
+}
         :root {
             --bg-color: #2c3e50;
             --card-bg: #ffffff;
@@ -21,8 +25,24 @@
             --card-text: #ffffff;
         }
 
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); padding: 20px 40px 120px 40px; color: var(--text-color); transition: 0.3s; }
+/* COLOQUE AQUI: Ajuste para os ícones no Modo Escuro */
+body.dark-mode .card img { 
+    background: white; 
+    border-radius: 8px; 
+    padding: 5px; 
+}       
+
+ body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); padding: 20px 40px 120px 40px; color: var(--text-color); transition: 0.3s; }
         h1, h2 { text-align: center; color: var(--header-color); }
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background: var(--bg-color); 
+    /* Altere de 120px para 100vh para garantir que qualquer seção chegue ao topo */
+    padding: 20px 40px 100vh 40px; 
+    color: var(--text-color); 
+    transition: 0.3s; 
+}
         
         /* Dashboard Superior */
         .dashboard { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 15px; margin-bottom: 20px; }
