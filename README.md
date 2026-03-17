@@ -1,4 +1,4 @@
-# 🔗 Links Úteis - Dashboard de Produtividade v1.5 (Edição Realengo)
+# 🔗 Links Úteis - Dashboard de Produtividade v1.5
 
 **Links Úteis** é uma central de ferramentas online e acessos rápidos desenvolvida para otimizar o fluxo de trabalho administrativo e técnico. Originalmente focado nas necessidades do Ministério da Saúde, o projeto evoluiu para uma interface universal, leve e totalmente customizável.
 
