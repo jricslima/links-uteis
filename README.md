@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 Funcionalidades de Elite
+## 🚀 Funcionalidades
 
 O Dashboard adapta-se ao seu estilo de trabalho com recursos inteligentes integrados em uma única página:
 
