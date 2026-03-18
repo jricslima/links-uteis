@@ -264,15 +264,16 @@ window.onscroll = function() {
 </script>
 
 <script>
-  // Ajusta o caminho de todas as imagens para a pasta img/
-  document.querySelectorAll('img').forEach(img => {
-    let src = img.getAttribute('src');
-    // Se a imagem não for um link externo e não começar com img/, adiciona o prefixo
-    if (src && !src.startsWith('http') && !src.startsWith('img/') && src !== 'engrenagem.png') {
-      img.src = 'img/' + src;
-    }
+  // Script Corrigido: Redireciona imagens para a pasta img/
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.card img').forEach(img => {
+      let src = img.getAttribute('src');
+      // Só adiciona o prefixo se não for link externo e não estiver na pasta img/
+      if (src && !src.startsWith('http') && !src.startsWith('img/')) {
+        img.src = 'img/' + src;
+      }
+    });
   });
 </script>
-
 </body>
 </html>
