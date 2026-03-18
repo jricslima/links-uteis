@@ -261,14 +261,16 @@ window.onscroll = function() {
         btn.style.display = "none";
     }
 };
+<script>
+  // Script para corrigir o caminho das imagens para a pasta img/
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.card img').forEach(img => {
+      let src = img.getAttribute('src');
+      if (src && !src.startsWith('http') && !src.startsWith('img/') && src !== 'engrenagem.png') {
+        img.src = 'img/' + src;
+      }
+    });
+  });
 </script>
-// Script para redirecionar imagens para a pasta img/
-document.querySelectorAll('.card img').forEach(img => {
-    let src = img.getAttribute('src');
-    if (!src.startsWith('http') && !src.startsWith('img/')) {
-        img.setAttribute('src', 'img/' + src);
-    }
-}); 
-
 </body>
 </html>
