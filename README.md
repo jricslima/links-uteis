@@ -1,5 +1,7 @@
 # 🔗 Links Úteis - Dashboard de Produtividade v1.5
 
+[![Acessar Dashboard](https://img.shields.io/badge/ACESSAR_DASHBOARD-2ea44f?style=for-the-badge&logo=github&logoColor=white)](https://jricslima.github.io/links-uteis/)
+
 **Links Úteis** é uma central de ferramentas online e acessos rápidos desenvolvida para otimizar o fluxo de trabalho administrativo e técnico. Originalmente focado nas necessidades do Ministério da Saúde, o projeto evoluiu para uma interface universal, leve e totalmente customizável.
 
 ---
