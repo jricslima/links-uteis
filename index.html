@@ -374,16 +374,27 @@ window.onscroll = function() {
 </script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Corrige apenas imagens dentro de links com a classe 'card'
+    // 1. Mantém a correção das imagens das logos
     document.querySelectorAll('a.card img').forEach(img => {
       let src = img.getAttribute('src');
-      // Só adiciona img/ se o caminho já não começar com img/ ou http
       if (src && !src.startsWith('img/') && !src.startsWith('http')) {
         img.src = 'img/' + src;
       }
     });
+
+    // 2. BUSCA O CONTADOR REAL
+    // Usei o seu ID 'jricslima' que você sempre usa nos projetos
+    fetch('https://www.freecounterstat.com/counts/screen/jricslima/5')
+      .then(response => response.text())
+      .then(data => {
+        // Esta linha abaixo busca exatamente o quadro cinza onde está o "INACCESSIBLE"
+        const celulaContador = document.querySelector('td[style*="background-color: rgb(153, 153, 153)"]');
+        if (celulaContador) {
+          celulaContador.innerText = data;
+        }
+      })
+      .catch(() => console.log("Erro ao carregar visitas"));
   });
 </script>
-
 </body>
 </html>
